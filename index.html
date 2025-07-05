@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Navbar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6fa;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background: #000;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00b7ff;
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .search-icon {
+      font-size: 20px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #fff;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle.active {
+      transform: rotate(90deg);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        width: 250px;
+        background: #111;
+        flex-direction: column;
+        padding: 60px 20px;
+        transition: left 0.3s ease;
+        z-index: 998;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .menu-toggle {
+        display: block;
+        z-index: 999;
+      }
+    }
+
+    /* Animated X icon */
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo"><img src="logo.png" style="width:130px; height: 40px;"></div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#">Gadgets</a>
+      <a href="#">Ai</a>
+      <a href="#">Robotics</a>
+       <a href="#">Crypto</a>
+       
+      <a href="#">Programming</a>
+       <a href="#">Cupons</a>
+    </nav>
+
+    <div class="nav-icons">
+      <i class="search-icon"><img src="search.png" style="width: 30px;"></i>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+
+ <!-- Responsive Section -->
+  <section class="max-w-7xl mx-auto px-4 py-16 flex flex-col-reverse md:flex-row items-center gap-10">
+    
+    <!-- Left Text Section -->
+    <div class="md:w-1/2 text-center md:text-left">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Discover the Future of Tech</h2>
+      <p class="text-gray-600 mb-4">Explore cutting-edge innovations and insightful blogs that drive the world forward.</p>
+      <div class="text-xl font-semibold text-blue-600">Topics: <span id="changingText">Web Development</span></div>
+    </div>
+
+    <!-- Right Image Section -->
+    <div class="md:w-1/2 flex justify-center">
+      <img src="main.gif" alt="Tech GIF" class="w-full max-w-sm rounded-lg shadow" />
+    </div>
+
+  </section>
+
+
+<div class="border-t-4 border-gray-700 my-12"></div>
+
+
+
+
+
+
+    <section class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-2xl font-bold text-center mb-10 text-gray-800">Explore Topics</h2>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4" id="cardGrid">
+      <!-- Card Template -->
+      <div class="card p-6 rounded-xl shadow-lg text-center font-semibold">Gadgets</div>
+      <div class="card p-6 rounded-xl shadow-lg text-center font-semibold">Ai</div>
+      <div class="card p-6 rounded-xl shadow-lg text-center font-semibold">Robotics</div>
+      <div class="card p-6 rounded-xl shadow-lg text-center font-semibold">Mobile Apps</div>
+      <div class="card p-6 rounded-xl shadow-lg text-center font-semibold">Gadgets</div>
+      <div class="card p-6 rounded-xl shadow-lg text-center font-semibold">Tech News</div>
+    </div>
+  </section>
+
+
+
+ <!-- Blog Highlight Section -->
+  <section class="max-w-7xl mx-auto px-4 py-16">
+
+     <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">🔥 Featured Posts</h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+      <!-- Left: Big Blog Card -->
+      <div class="lg:col-span-2 bg-white rounded-xl shadow overflow-hidden">
+        <img src="https://source.unsplash.com/800x400/?technology,futuristic" class="w-full h-64 object-cover" alt="Featured Blog">
+        <div class="p-6">
+          <span class="text-sm text-indigo-600 font-medium mb-2 block">Technology</span>
+          <h2 class="text-2xl font-bold mb-2">The Future of AI: How It's Shaping Tomorrow</h2>
+          <p class="text-gray-600">Artificial Intelligence is rapidly evolving, reshaping industries, and redefining how we live and work. This in-depth article explores the trends, ethics, and potential of AI in the next decade.</p>
+        </div>
+      </div>
+
+      <!-- Right: 4 Small Blog Cards -->
+      <div class="space-y-4">
+        <!-- Small Card 1 -->
+        <div class="flex bg-white rounded-lg shadow overflow-hidden">
+          <img src="https://source.unsplash.com/120x120/?robot" class="w-24 h-24 object-cover" alt="Robot">
+          <div class="p-3">
+            <h3 class="font-semibold text-base">Top 5 Robots Changing the World</h3>
+            <p class="text-sm text-gray-500">June 30, 2025</p>
+          </div>
+        </div>
+
+        <!-- Small Card 2 -->
+        <div class="flex bg-white rounded-lg shadow overflow-hidden">
+          <img src="https://source.unsplash.com/120x120/?coding,developer" class="w-24 h-24 object-cover" alt="Coding">
+          <div class="p-3">
+            <h3 class="font-semibold text-base">Best Programming Languages in 2025</h3>
+            <p class="text-sm text-gray-500">June 29, 2025</p>
+          </div>
+        </div>
+
+        <!-- Small Card 3 -->
+        <div class="flex bg-white rounded-lg shadow overflow-hidden">
+          <img src="https://source.unsplash.com/120x120/?smartphone,tech" class="w-24 h-24 object-cover" alt="Smartphone">
+          <div class="p-3">
+            <h3 class="font-semibold text-base">Upcoming Smartphones to Watch</h3>
+            <p class="text-sm text-gray-500">June 28, 2025</p>
+          </div>
+        </div>
+
+        <!-- Small Card 4 -->
+        <div class="flex bg-white rounded-lg shadow overflow-hidden">
+          <img src="https://source.unsplash.com/120x120/?virtualreality" class="w-24 h-24 object-cover" alt="VR">
+          <div class="p-3">
+            <h3 class="font-semibold text-base">Is VR the Future of Gaming?</h3>
+            <p class="text-sm text-gray-500">June 27, 2025</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+<section class="bg-gray-50 py-12 overflow-hidden">
+  <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">🔥 Trending Blogs</h2>
+
+  <!-- Scrollable container -->
+  <div id="scrollWrapper" class="overflow-x-auto cursor-grab active:cursor-grabbing">
+    <div id="scrollContainer" class="flex w-max gap-4 px-4 select-none">
+      
+      <!-- Cards -->
+      <a href="#" class="min-w-[280px] bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+        <img src="https://source.unsplash.com/300x200/?tech" class="w-full h-32 object-cover rounded" />
+        <h3 class="text-sm font-semibold mt-2">AI in Healthcare</h3>
+      </a>
+      <a href="#" class="min-w-[280px] bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+        <img src="https://source.unsplash.com/300x200/?robotics" class="w-full h-32 object-cover rounded" />
+        <h3 class="text-sm font-semibold mt-2">Future of Robotics</h3>
+      </a>
+      <a href="#" class="min-w-[280px] bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+        <img src="https://source.unsplash.com/300x200/?code" class="w-full h-32 object-cover rounded" />
+        <h3 class="text-sm font-semibold mt-2">Web Dev Tools</h3>
+      </a>
+      <a href="#" class="min-w-[280px] bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+        <img src="https://source.unsplash.com/300x200/?smartphone" class="w-full h-32 object-cover rounded" />
+        <h3 class="text-sm font-semibold mt-2">Next-Gen Phones</h3>
+      </a>
+      <a href="#" class="min-w-[280px] bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+        <img src="https://source.unsplash.com/300x200/?vr" class="w-full h-32 object-cover rounded" />
+        <h3 class="text-sm font-semibold mt-2">VR in Gaming</h3>
+      </a>
+      <a href="#" class="min-w-[280px] bg-white rounded-lg shadow p-4 hover:shadow-md transition">
+        <img src="https://source.unsplash.com/300x200/?tech,ai" class="w-full h-32 object-cover rounded" />
+        <h3 class="text-sm font-semibold mt-2">AI in Daily Life</h3>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Latest Posts Section -->
+<section class="max-w-7xl mx-auto px-4 py-16">
+  <h2 class="text-2xl font-bold mb-10 text-gray-800 text-center">🆕 Latest Posts</h2>
+
+  <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+    
+    <!-- Blog Card 1 -->
+    <div class="bg-white rounded-lg shadow hover:shadow-md transition duration-300">
+      <img src="https://source.unsplash.com/300x200/?technology,ai" alt="Post Image" class="rounded-t-lg w-full h-36 object-cover">
+      <div class="p-3">
+        <span class="text-xs text-indigo-600 block mb-1">July 1, 2025</span>
+        <h3 class="text-sm font-semibold mb-1">AI Is Reshaping Our Future</h3>
+        <p class="text-xs text-gray-600">A quick look at how AI is affecting daily life and industries.</p>
+      </div>
+    </div>
+
+    <!-- Blog Card 2 -->
+    <div class="bg-white rounded-lg shadow hover:shadow-md transition duration-300">
+      <img src="https://source.unsplash.com/300x200/?robotics" alt="Post Image" class="rounded-t-lg w-full h-36 object-cover">
+      <div class="p-3">
+        <span class="text-xs text-indigo-600 block mb-1">June 30, 2025</span>
+        <h3 class="text-sm font-semibold mb-1">Robots in Healthcare</h3>
+        <p class="text-xs text-gray-600">How robots are transforming surgery, care, and recovery.</p>
+      </div>
+    </div>
+
+    <!-- Blog Card 3 -->
+    <div class="bg-white rounded-lg shadow hover:shadow-md transition duration-300">
+      <img src="https://source.unsplash.com/300x200/?coding" alt="Post Image" class="rounded-t-lg w-full h-36 object-cover">
+      <div class="p-3">
+        <span class="text-xs text-indigo-600 block mb-1">June 29, 2025</span>
+        <h3 class="text-sm font-semibold mb-1">Beginner’s Guide to JavaScript</h3>
+        <p class="text-xs text-gray-600">Start your coding journey with this beginner-friendly guide.</p>
+      </div>
+    </div>
+
+    <!-- Blog Card 4 -->
+    <div class="bg-white rounded-lg shadow hover:shadow-md transition duration-300">
+      <img src="https://source.unsplash.com/300x200/?smartphone" alt="Post Image" class="rounded-t-lg w-full h-36 object-cover">
+      <div class="p-3">
+        <span class="text-xs text-indigo-600 block mb-1">June 28, 2025</span>
+        <h3 class="text-sm font-semibold mb-1">Top Smartphones in 2025</h3>
+        <p class="text-xs text-gray-600">A quick list of the best flagship phones so far this year.</p>
+      </div>
+    </div>
+
+    <!-- Blog Card 5 -->
+    <div class="bg-white rounded-lg shadow hover:shadow-md transition duration-300">
+      <img src="https://source.unsplash.com/300x200/?virtualreality" alt="Post Image" class="rounded-t-lg w-full h-36 object-cover">
+      <div class="p-3">
+        <span class="text-xs text-indigo-600 block mb-1">June 27, 2025</span>
+        <h3 class="text-sm font-semibold mb-1">Why VR Is Gaining Momentum</h3>
+        <p class="text-xs text-gray-600">Virtual reality is no longer a dream—see where it's going.</p>
+      </div>
+    </div>
+
+    <!-- Blog Card 6 -->
+    <div class="bg-white rounded-lg shadow hover:shadow-md transition duration-300">
+      <img src="https://source.unsplash.com/300x200/?laptop" alt="Post Image" class="rounded-t-lg w-full h-36 object-cover">
+      <div class="p-3">
+        <span class="text-xs text-indigo-600 block mb-1">June 26, 2025</span>
+        <h3 class="text-sm font-semibold mb-1">Top Laptops for Developers</h3>
+        <p class="text-xs text-gray-600">Looking for performance? Check out these developer laptops.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<br><br>
+
+
+<!-- Black Footer Without Subscribe -->
+<footer class="bg-black text-white py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Grid Layout -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+
+      <!-- Logo / About -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">TechBlog</h3>
+        <p class="text-sm text-gray-400">
+          Stay updated with the latest in tech, gadgets, AI, and development trends.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3 uppercase tracking-wide">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="#" class="hover:text-white">Home</a></li>
+          <li><a href="#" class="hover:text-white">About</a></li>
+          <li><a href="#" class="hover:text-white">Contact</a></li>
+          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div>
+        <h4 class="text-sm font-semibold mb-3 uppercase tracking-wide">Categories</h4>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="#" class="hover:text-white">AI</a></li>
+          <li><a href="#" class="hover:text-white">Frontend</a></li>
+          <li><a href="#" class="hover:text-white">Mobile</a></li>
+          <li><a href="#" class="hover:text-white">Gadgets</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+      © 2025 TechBlog. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+    });
+
+
+
+const carousel = document.getElementById('carousel');
+  const scrollAmount = 280;
+
+  function scrollCarousel(direction = 1) {
+    carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
+
+  // Auto-scroll every 4 seconds
+  setInterval(() => {
+    scrollCarousel(1);
+  }, 4000);
+
+
+
+
+
+
+
+
+
+const topics = [
+      "Web Development",
+      "AI & Robotics",
+      "Mobile Apps",
+      "Gadget Reviews",
+      "Tech News"
+    ];
+    
+    let index = 0;
+    const textElement = document.getElementById("changingText");
+
+    setInterval(() => {
+      index = (index + 1) % topics.length;
+      textElement.textContent = topics[index];
+    }, 2500); // Change every 2.5 seconds
+
+
+
+
+
+    const colors = [
+      "bg-pink-500", "bg-purple-500", "bg-indigo-500", "bg-blue-500",
+      "bg-green-500", "bg-yellow-500", "bg-red-500", "bg-emerald-500",
+      "bg-teal-500", "bg-rose-500", "bg-fuchsia-500", "bg-orange-500"
+    ];
+
+    const cards = document.querySelectorAll(".card");
+
+    function getRandomColor() {
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function updateCardColors() {
+      cards.forEach(card => {
+        // Remove all existing bg-* classes
+        card.classList.remove(...colors);
+        // Add new random background
+        card.classList.add(getRandomColor());
+      });
+    }
+
+    // Initial color set
+    updateCardColors();
+
+    // Change colors every 3 seconds
+    setInterval(updateCardColors, 3000);
+
+
+  const wrapper = document.getElementById("scrollWrapper");
+
+    // Auto-scroll
+    setInterval(() => {
+      wrapper.scrollLeft += 1;
+      // Loop back if reached end
+      if (wrapper.scrollLeft + wrapper.offsetWidth >= wrapper.scrollWidth) {
+        wrapper.scrollLeft = 0;
+      }
+    }, 30); // slower = smoother (lower = slower)
+
+    // Swipe / drag
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    wrapper.addEventListener("mousedown", (e) => {
+      isDown = true;
+      startX = e.pageX - wrapper.offsetLeft;
+      scrollLeft = wrapper.scrollLeft;
+    });
+    wrapper.addEventListener("mouseleave", () => isDown = false);
+    wrapper.addEventListener("mouseup", () => isDown = false);
+    wrapper.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - wrapper.offsetLeft;
+      const walk = (x - startX) * 2; // scroll speed
+      wrapper.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch support
+    wrapper.addEventListener("touchstart", (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX - wrapper.offsetLeft;
+      scrollLeft = wrapper.scrollLeft;
+    });
+    wrapper.addEventListener("touchend", () => isDown = false);
+    wrapper.addEventListener("touchmove", (e) => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX - wrapper.offsetLeft;
+      const walk = (x - startX) * 2;
+      wrapper.scrollLeft = scrollLeft - walk;
+    });
+
+
+
+
+
+
+
+  </script>
+
+</body>
+</html>
