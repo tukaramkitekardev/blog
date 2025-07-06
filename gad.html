@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Blog Cards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-4">
+
+  <div class="max-w-7xl mx-auto">
+    <div id="cardGrid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <!-- Cards inserted here -->
+    </div>
+
+    <div class="text-center mt-6">
+      <button id="loadMoreBtn" class="px-5 py-2 bg-blue-600 text-white text-sm sm:text-base rounded hover:bg-blue-700 transition">
+        Load More
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const cards = [
+      {
+        img: 'https://picsum.photos/400/200',
+        title: 'Top Smartphone Features in 2025',
+        para1: 'Discover the latest trends shaping smartphone technology.',
+        para2: 'Know what matters most before your next upgrade.',
+      },
+      {
+        img: 'https://picsum.photos/400/200',
+        title: 'Choosing the Right Smartwatch',
+        para1: 'Explore fitness and productivity gadgets in depth.',
+        para2: 'Find what suits your lifestyle best.',
+      },
+      {
+        img: 'https://via.placeholder.com/400x200',
+        title: 'Essential Gadgets for Students',
+        para1: 'Boost your learning with smart tools.',
+        para2: 'Stay ahead in academics and productivity.',
+      },
+      {
+        img: 'https://via.placeholder.com/400x200',
+        title: 'Laptop Buying Tips for 2025',
+        para1: 'Performance, battery, design — simplified.',
+        para2: 'Choose smart without brand confusion.',
+      },
+      {
+        img: 'https://via.placeholder.com/400x200',
+        title: 'Guide to Wireless Earbuds',
+        para1: 'What to look for: sound, comfort, battery.',
+        para2: 'Practical buying advice without brand bias.',
+      },
+      {
+        img: 'https://via.placeholder.com/400x200',
+        title: 'Refurbished Gadgets: A Smart Choice?',
+        para1: 'Explore pros, cons, and buyer safety tips.',
+        para2: 'Make informed decisions and save money.',
+      },
+      {
+        img: 'https://via.placeholder.com/400x200',
+        title: 'Top Desk Accessories for 2025',
+        para1: 'Increase productivity with the right gear.',
+        para2: 'Perfect for students, creators, and remote workers.',
+      },
+      {
+        img: 'https://via.placeholder.com/400x200',
+        title: 'Smart Home Gadgets Guide',
+        para1: 'Automate your home with essential tech.',
+        para2: 'Security, energy-saving, and convenience in one.',
+      },
+      {
+        img: 'https://via.placeholder.com/400x200',
+        title: 'Remote Work Tech Must-Haves',
+        para1: 'Stay efficient with these essential tools.',
+        para2: 'Perfect for freelancers and hybrid professionals.',
+      },
+      {
+        img: 'https://via.placeholder.com/400x200',
+        title: 'Portable Power Banks Simplified',
+        para1: 'Understand battery, ports, and speed.',
+        para2: 'Choose wisely for everyday or travel use.',
+      },
+      {
+        img: 'https://via.placeholder.com/400x200',
+        title: 'Beginner’s Guide to Smart Displays',
+        para1: 'Learn how they can improve your daily life.',
+        para2: 'From reminders to video calls, all in one.',
+      },
+      {
+        img: 'https://via.placeholder.com/400x200',
+        title: 'Battery Saving Tech Tips',
+        para1: 'Simple habits for longer device performance.',
+        para2: 'Works for phones, laptops, and more.',
+      },
+    ];
+
+    const cardGrid = document.getElementById('cardGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    let visibleCards = 6;
+
+    function renderCards() {
+      cardGrid.innerHTML = '';
+      for (let i = 0; i < visibleCards && i < cards.length; i++) {
+        const card = cards[i];
+        cardGrid.innerHTML += `
+          <div class="bg-white rounded-lg overflow-hidden">
+            <img src="${card.img}" alt="${card.title}" class="w-full h-32 sm:h-40 lg:h-48 object-cover">
+            <div class="p-3 sm:p-4">
+              <h2 class="text-sm sm:text-base font-semibold text-gray-800">${card.title}</h2>
+              <p class="text-xs sm:text-sm text-gray-600 mt-1">${card.para1}</p>
+              <p class="text-xs sm:text-sm text-gray-600 mt-1">${card.para2}</p>
+            </div>
+          </div>
+        `;
+      }
+
+      if (visibleCards >= cards.length) {
+        loadMoreBtn.style.display = 'none';
+      }
+    }
+
+    loadMoreBtn.addEventListener('click', () => {
+      visibleCards += 6;
+      renderCards();
+    });
+
+    renderCards();
+  </script>
+
+</body>
+</html>
